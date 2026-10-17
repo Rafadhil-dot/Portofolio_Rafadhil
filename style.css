@@ -70,10 +70,48 @@ body {
     gap: 14px;
 }
 
+.project-search {
+    margin-bottom: 18px;
+}
+
+.project-search label {
+    display: block;
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.project-search input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    background: #0b1329;
+    color: #e2e8f0;
+    font: inherit;
+}
+
+.project-search input:focus {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+}
+
+.project-search-status {
+    min-height: 20px;
+    margin-top: 8px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
 .project-item {
     padding: 18px;
     border: 1px solid #334155;
     border-radius: 10px;
+}
+
+.project-item[hidden] {
+    display: none;
 }
 
 .project-item h2 {
@@ -314,6 +352,17 @@ body.light-mode .project-item h2 {
 
 body.light-mode .project-item p {
     color: #334155;
+}
+
+body.light-mode .project-search label,
+body.light-mode .project-search-status {
+    color: #475569;
+}
+
+body.light-mode .project-search input {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
 }
 
 body.light-mode .student-name {

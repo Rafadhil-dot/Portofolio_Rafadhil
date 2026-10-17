@@ -9,7 +9,7 @@
 <body>
     <main class="page-wrapper">
         <nav class="page-nav" aria-label="Navigasi utama">
-            <a href="latihan2.html">Profil</a>
+            <a href="index.html">Profil</a>
             <a href="proyek.html" aria-current="page">Proyek</a>
             <button id="btnToggleTema" class="btn-tema">🔆 Ganti Mode</button>
         </nav>
@@ -19,6 +19,12 @@
                 <h1 class="student-name">Proyek Saya</h1>
                 <p class="bio-text">Beberapa hal yang sedang saya pelajari dan kembangkan di bidang web development.</p>
             </header>
+
+            <div class="project-search">
+                <label for="projectSearch">Cari proyek</label>
+                <input id="projectSearch" type="search" placeholder="Cari nama atau teknologi proyek..." autocomplete="off">
+                <p id="projectSearchStatus" class="project-search-status" aria-live="polite"></p>
+            </div>
 
             <div class="project-list">
                 <article class="project-item">
