@@ -1,15 +1,51 @@
 const btnTema = document.querySelector('#btnToggleTema');
 const bodyHalaman = document.querySelector('body');
 
+if (localStorage.getItem('portfolio-theme') === 'light') {
+  bodyHalaman.classList.add('light-mode');
+}
+
 if (btnTema) {
+  const updateThemeButton = function() {
+    btnTema.textContent = bodyHalaman.classList.contains('light-mode')
+      ? '🌙 Mode Gelap'
+      : '🔆 Mode Terang';
+  };
+
+  updateThemeButton();
+
   btnTema.addEventListener('click', function() {
     bodyHalaman.classList.toggle('light-mode');
-    if (bodyHalaman.classList.contains('light-mode')) {
-      btnTema.textContent = '🌙 Mode Gelap';
-    } else {
-      btnTema.textContent = '🔆 Mode Terang';
-    }
+    localStorage.setItem(
+      'portfolio-theme',
+      bodyHalaman.classList.contains('light-mode') ? 'light' : 'dark'
+    );
+    updateThemeButton();
   });
+}
+
+const projectSearch = document.querySelector('#projectSearch');
+const projectSearchStatus = document.querySelector('#projectSearchStatus');
+const projectItems = document.querySelectorAll('.project-item');
+
+if (projectSearch && projectSearchStatus) {
+  const updateProjectResults = function() {
+    const query = projectSearch.value.trim().toLocaleLowerCase('id');
+    let visibleCount = 0;
+
+    projectItems.forEach(item => {
+      const matches = item.textContent.toLocaleLowerCase('id').includes(query);
+      item.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+
+    projectSearchStatus.textContent = visibleCount === 0
+      ? 'Tidak ada proyek yang cocok.'
+      : `${visibleCount} proyek ditemukan.`;
+  };
+
+  projectSearch.addEventListener('input', updateProjectResults);
+  updateProjectResults();
 }
 
 const btnBukaModal = document.querySelector('#btnKontak');
